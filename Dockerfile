@@ -1,7 +1,6 @@
-FROM baseImage
-RUN python3 -m venv env
-RUN source env/bin/activate
+FROM python:3.8.2-slim-buster
+WORKDIR /backend 
+COPY requirements.txt requirements.txt 
 RUN python -m pip install -r requirements.txt
-RUN python manage.py makemigrations
-RUN python manage.py migrate
-RUN python manage.py runserver
+COPY . .
+CMD ["python3","manage.py","runserver","0.0.0.0:8000"]

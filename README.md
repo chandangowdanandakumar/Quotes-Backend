@@ -27,3 +27,10 @@ python manage.py runserver  -->
 `python manage.py migrate`
 
 `python manage.py runserver`
+
+# Run Docker
+
+`docker build -t backend .`
+
+`docker run --name backend-container -d -p 8000:8000 backend`
+
